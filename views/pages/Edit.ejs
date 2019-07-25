@@ -1,0 +1,70 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/update/<%= usuarios._id%>" method="post" encType="multipart/form-data">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td>Nombre</td>
+                          <td><input class="form-control" type="text" name="Nombre" value="<%= usuarios.Nombre %>" /></td>
+                        </tr>
+                        <tr>
+                          <td>Apellidos</td>
+                          <td><input  class="form-control" type="text" name="Apellido" value="<%= usuarios.Apellido %>"></textarea></td>
+                        </tr>
+                        <tr>
+                          <td>Sexo</td>
+                          <td>
+                          <select name="Sexo" class="form-control">
+                            <option disabled selected>Seleccione uno</option>
+                            <% if(usuarios.Sexo=="Hombre") { %>
+                            <option name="Sexo" value="Hombre" selected>Hombre</option>
+                            <option name="Sexo" value="Mujer">Mujer</option>
+
+                            <%} else { %>
+                              <option name="Sexo" value="Hombre" >Hombre</option>
+                              <option name="Sexo" value="Mujer" selected>Mujer</option>
+                            <% } %>
+                          </select></td>
+                        </tr>
+                        <tr>
+                          <td>Imagen</td>
+                          <td><input class="form-control" type="file" name="Foto2" onclick="valuechange()" />
+                            <input class="form-control" type="hidden" name="Foto" value="<%= usuarios.Foto %>" />
+                            <input type="hidden" class="form-control" name="subir" id="subir"  value="1"/></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2"><button class="btn btn-success" type="submit">Actualizar</button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </form>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    function valuechange(){
+    document.getElementById("subir").value="2";
+   }
+  </script>
+<footer>
+    <% include ../partials/footer %>
+</footer>
+</body>
+
+</html>

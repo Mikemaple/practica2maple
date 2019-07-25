@@ -1,0 +1,56 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body class="container">
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Crear nuevo usuario</h1>
+            <form action="/create" method="post" encType="multipart/form-data">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Nombre</td>
+                    <td><input class="form-control" type="text" name="Nombre" /></td>
+                  </tr>
+                  <tr>
+                    <td>Apellidos</td>
+                    <td><input class="form-control" type="text" name="Apellido" /></td>
+                  </tr>
+                  <tr>
+                    <td>Sexo</td>
+                    <td>
+                    <select name="Sexo" class="form-control">
+                        <option name="Sexo" value="Hombre" >Hombre</option>
+                        <option name="Sexo" value="Mujer">Mujer</option>
+                    </select>
+                  </tr>
+                  <tr>
+                    <td>Foto</td>
+                    <td><input class="form-control" type="file" name="Foto" /></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><input class="btn btn-success" type="submit" value="Guardar" /></td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+      <a class="btn btn-success" href="/create">Agregar usuario</a>
+        <h3>Lista de Usuarios</h1>
+      <% if(usuarios.length>0) { %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Sexo</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            <% for(var i=0; i<usuarios.length;i++) { %>
+                <tr>
+                  <td><%= usuarios[i].Nombre%></a></td>
+                  <td><%= usuarios[i].Apellido%></td>
+                  <td><%= usuarios[i].Sexo%></td>
+                  <td><img src="<%= usuarios[i].Foto%>" height="50px" /></td>
+                  <td><a class="btn btn-warning" href="/edit/<%= usuarios[i]._id%>">Editar</a>|<a class="btn btn-danger" href="/delete/<%= usuarios[i]._id%>">Eliminar</a></td>
+                </tr>
+              <% } %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <div>No employees found.</div>
+      <% } %>
+    </div>
+    </div>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
